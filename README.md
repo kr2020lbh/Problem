@@ -7,4 +7,4 @@
 
 [최장 공통 부분 수열](https://github.com/kr2020lbh/Problem/blob/master/SWEA/D3/SWEA_3304.py)
 
-[Knapsack problem]
+[Knapsack problem](https://github.com/kr2020lbh/Problem/blob/master/SWEA/D3/SWEA_3282.py)
