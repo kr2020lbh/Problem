@@ -1,44 +1,53 @@
-#힙
+# #힙
 import sys
 sys.stdin = open("input.txt","r")
-class Myheap:
-    length = 1
 
-    def insert_heap(self,arr,n):
-        i=1
+class Myheap:
+    length = 0
+    def __init__(self,n):
+        self.arr = [0] * (n+1)
+    def insert_heap(self,element):
+        self.length += 1
+        idx = self.length
+        self.arr[idx] = element
         while True:
-            if arr[i]==0:
-                arr[i] = n
-                self.length += 1
+            if idx == 1:
                 break
             else:
-                i+=1
-        while i!=1:
-            if arr[i]>arr[(i-1)//2]:
-                arr[i],arr[(i-1)//2]=arr[(i-1)//2],arr[i]
-                i = (i-1)//2
-                continue
-            break
-
-    def pop_heap(self,arr):
-        tmp = arr[1]
-        arr[1]=arr[self.length+1]
-        arr[self.length+1]=0
+                parent_idx = idx//2
+                if self.arr[idx]>self.arr[parent_idx]:
+                    self.arr[idx],self.arr[parent_idx]=self.arr[parent_idx],self.arr[idx]
+                    idx = parent_idx
+                else:
+                    break
+    def delete_heap(self):
+        if self.length == 0:
+            return -1
+        pop_value = self.arr[1]
+        self.arr[1] = self.arr[self.length]
+        self.arr[self.length] = 0
         self.length -= 1
-        while arr[i]<arr[2*i] or arr[i]<arr[2*i+1]:
-            if arr[2*i]>=arr[2*i+1]:
-                arr[i],arr[2*i] = arr[2*i],arr[i]
+        idx = 1
+        while idx<self.length:
+            if self.arr[idx] < self.arr[idx*2] or self.arr[idx] < self.arr[idx*2+1]:
+                if self.arr[idx*2] > self.arr[idx*2+1]:
+                    self.arr[idx],self.arr[idx*2]  = self.arr[idx*2] ,self.arr[idx]
+                    idx = idx*2
+                else:
+                    self.arr[idx], self.arr[idx * 2 +1 ] = self.arr[idx * 2 + 1], self.arr[idx]
+                    idx= idx*2 + 1
             else:
-                arr[i],arr[2*i+1] = arr[2*i+1],arr[i]
-            i+=1
-
+                break
+        return pop_value
 
 for t in range(1,int(input())+1):
     N = int(input())
-    arr = [0] * (N+1)
-    heap = Myheap()
-    action = list(map(int,input().split()))
-    if action[0]:
-        heap.insert_heap(arr,action[1])
-    else:
-        pass
+    arr = ''
+    heap = Myheap(N)
+    for _ in range(N):
+        action = list(map(int,input().split()))
+        if action[0]==1:
+            heap.insert_heap(action[1])
+        else:
+            arr+=str(heap.delete_heap())+' '
+    print(f'#{t} {arr}')
