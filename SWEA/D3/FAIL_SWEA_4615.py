@@ -1,41 +1,73 @@
 import sys
-import pprint
 sys.stdin = open("input.txt", "r")
+def osello_reset(arr):
+    center = len(arr)//2
+    arr[center - 1][center - 1] = 1
+    arr[center][center] = 1
+    arr[center - 1][center] = 2
+    arr[center][center - 1] = 2
+    return
+
+def check_between_row(arr,pivot_row,pivot_col,check_col,stone):
+    if stone == 1:
+        another_stone = 2
+    else:
+        another_stone = 1
+    if pivot_col > check_col:
+        for j in range(check_col+1,pivot_col):
+            if arr[pivot_row][j]==another_stone:
+                pass
+            else:
+                return
+        else:
+            arr[pivot_row][check_col:pivot_col]=[stone]*(pivot_col-check_col)
+    elif pivot_col < check_col:
+        for j in range(pivot_col+1,check_col):
+            if arr[pivot_row][j]==another_stone:
+                pass
+            else:
+                return
+        else:
+            arr[pivot_row][pivot_col+1:check_col] = [stone] * (check_col - pivot_col-1)
+
+def check_between_col(arr,pivot_row,pivot_col,check_row,stone):
+    if stone == 1:
+        another_stone = 2
+    else:
+        another_stone = 1
+    if pivot_row > check_row:
+        for j in range(check_row+1,pivot_row):
+            if arr[j][pivot_col]==another_stone:
+                pass
+            else:
+                return
+        else:
+            arr[check_row:pivot_row][pivot_col]=[stone]*(pivot_row-check_row)
+    elif pivot_row < check_row:
+        for j in range(pivot_row+1,check_row):
+            if arr[j][pivot_col]==another_stone:
+                pass
+            else:
+                return
+        else:
+            arr[pivot_row+1:check_row][pivot_col] = [stone] * (check_row - pivot_row-1)
+
+
+
+
+
 for t in range(1,int(input())+1):
-    black = 0
-    white = 0
-    N,M = map(int,input().split())
-    osello = [[(x+1,y+1) for x in range(N)] for y in range(N)]
-    osello[N//2-1][N//2-1] = 2 #white
-    osello[N//2][N//2] = 2 #white
-    osello[N//2-1][N//2] = 1 #black
-    osello[N//2][N//2-1] = 1 #black
+    N,M=map(int,input().split())
+    arr=[[0]*N for _ in range(N)]
+    osello_reset(arr)
     for _ in range(M):
-        x,y,stone = map(int,input().split())
-        osello[y-1][x-1] = stone
-    for line in osello:
-        black += line.count(1)
-        white += line.count(2) 
-    print(osello)
-    print(black,white)
-        
-# check horizon -> 
-    # left = until index 0
-    # right = until index N-1
-# check veritcal -> 
-    # up = until index 0
-    # down = until index N-1
-# check diagonal -> 
-    # leftup = x,y 가 둘 중 하나 0
-    # leftdown = x,y 가 둘 중 하나 
-    # rightup
-    # rightdown
+        y,x,stone = map(int,input().split())
+        i = y-1
+        j = x-1
+        for k in range(len(arr)):
+            check_between_row(arr,i,j,k,stone)
+            check_between_col(arr, i, j, k, stone)
+    print(arr)
 
 
 
-# osello = [[0 for x in range(6)] for y in range(6)]
-# osello[6//2-1][6//2-1] = 'W'
-# osello[6//2][6//2] = 'W'
-# osello[6//2-1][6//2] = 'B'
-# osello[6//2][6//2-1] = 'B'
-# pprint.pprint(osello)
