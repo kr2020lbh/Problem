@@ -10,3 +10,5 @@
 [Knapsack problem](https://github.com/kr2020lbh/Problem/blob/master/SWEA/D3/SWEA_3282.py)
 
 [힙 구현](https://github.com/kr2020lbh/Problem/blob/master/SWEA/D3/FAIL_SWEA_2930.py)
+
+[N_Queens](https://github.com/kr2020lbh/Problem/blob/master/SWEA/D3/SWEA_2806.py)
