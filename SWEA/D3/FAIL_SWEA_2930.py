@@ -2,115 +2,75 @@
 import sys
 sys.stdin = open("input.txt","r")
 
-# class Myheap:
-#     length = 0
-#     def __init__(self,n):
-#         self.arr = [0] * (n+1)
-#     def insert_heap(self,element):
-#         self.length += 1
-#         idx = self.length
-#         self.arr[idx] = element
-#         while True:
-#             if idx == 1:
-#                 break
-#             else:
-#                 parent_idx = idx//2
-#                 if self.arr[idx]>self.arr[parent_idx]:
-#                     self.arr[idx],self.arr[parent_idx]=self.arr[parent_idx],self.arr[idx]
-#                     idx = parent_idx
-#                 else:
-#                     break
-#     def delete_heap(self):
-#         if self.length == 0:
-#             return -1
-#         pop_value = self.arr[1]
-#         self.arr[1] = self.arr[self.length]
-#         self.arr[self.length] = 0
-#         self.length -= 1
-#         idx = 1
-#         while idx<self.length:
-#             if self.arr[idx] < self.arr[idx*2] or self.arr[idx] < self.arr[idx*2+1]:
-#                 if self.arr[idx*2] > self.arr[idx*2+1]:
-#                     self.arr[idx],self.arr[idx*2]  = self.arr[idx*2] ,self.arr[idx]
-#                     idx = idx*2
-#                 else:
-#                     self.arr[idx], self.arr[idx * 2 +1 ] = self.arr[idx * 2 + 1], self.arr[idx]
-#                     idx= idx*2 + 1
-#             else:
-#                 break
-#         return pop_value
 
+class Heap:
+    heap_length = 0
+    
+    def __init__(self):
+        self.arr = [0] * N
 
+    def insert(self,n):
+        tmp_idx = self.heap_length
+        if self.heap_length == 0:
+            self.arr[self.heap_length]=n
 
-# for t in range(1,int(input())+1):
-#     N = int(input())
-#     arr = ''
-#     heap = Myheap(N)
-#     for _ in range(N):
-#         action = list(map(int,input().split()))
-#         if action[0]==1:
-#             heap.insert_heap(action[1])
-#         else:
-#             arr+=str(heap.delete_heap())+' '
-#     print(f'#{t} {arr}')
-
-def insert_heap(element):
-    global length
-    idx = length
-    length += 1
-    if idx == 1:
-        heap[1] = element
-        return
-    else:
-        heap[idx] = element
-        while idx != 1: #부모 노드 = idx-1//2
-            if heap[idx//2] < heap[idx]:
-                heap[idx],heap[idx//2] = heap[idx//2],heap[idx]
-                idx = idx//2
-            else:return
-
-def delete_heap():
-    global length
-    idx = length
-    length -= 1
-
-    if idx == 1:
-        return '-1'
-    else:
-        tmp = 1
-        pop_element = heap[tmp]
-
-        heap[tmp],heap[idx] = heap[idx],heap[tmp]
-        heap[idx] = 0
-        while True:
-            left_child = (tmp) * 2
-            right_child = (tmp) * 2 + 1
-            if left_child>length+1 or right_child > length+1:
-                break
-            if(heap[tmp] < heap[left_child]) or (heap[tmp] < heap[right_child]):
-                if heap[left_child]<heap[right_child]:
-                    heap[tmp],heap[right_child] = heap[right_child],heap[tmp]
-                    tmp = right_child
-
+        else:
+            self.arr[self.heap_length] = n
+            while tmp_idx > 0:
+                parent_idx = (tmp_idx-1)//2
+                if self.arr[parent_idx]<self.arr[tmp_idx]:
+                    self.arr[parent_idx],self.arr[tmp_idx] = self.arr[tmp_idx],self.arr[parent_idx]
+                    tmp_idx = parent_idx
                 else:
-                    heap[tmp], heap[left_child] = heap[left_child], heap[tmp]
-                    tmp = left_child
+                    break
 
-            else:
-                break
+        self.heap_length += 1
 
-        return str(pop_element)
+    def delete(self):
+        if self.heap_length == 0:
+            return -1
+
+        elif self.heap_length == 1:
+            result = self.arr[0]
+            self.arr[0] = 0
+
+        else:
+            result = self.arr[0]
+            self.arr[0],self.arr[self.heap_length-1]=self.arr[self.heap_length-1],self.arr[0]
+            self.arr[self.heap_length-1] = 0
+
+
+            parent_idx = 0
+            left_child_idx = parent_idx*2+1
+            right_child_idx = parent_idx*2+2
+
+            while self.arr[left_child_idx] !=0 or self.arr[right_child_idx] !=0 :
+                if self.arr[parent_idx] < self.arr[left_child_idx] or self.arr[parent_idx] < self.arr[right_child_idx]:
+                    if self.arr[left_child_idx] >= self.arr[right_child_idx]:
+                        self.arr[parent_idx],self.arr[left_child_idx] = self.arr[left_child_idx],self.arr[parent_idx]
+                        parent_idx = left_child_idx
+                    else:
+                        self.arr[parent_idx],self.arr[right_child_idx] = self.arr[right_child_idx],self.arr[parent_idx]
+                        parent_idx = right_child_idx
+
+                    left_child_idx = parent_idx*2+1
+                    right_child_idx = parent_idx*2+2
+                else:
+                    break
+        self.heap_length -= 1
+        return result
 
 for t in range(1,int(input())+1):
     N = int(input())
-    heap = [0] * (N+1)
-    length = 1
-    result = []
-    action = [ list(map(int,input().split())) for _ in range(N)]
-    for i in range(N):
-        if action[i][0]==1:
-            insert_heap(action[i][1])
-        else:
-            result.append(delete_heap())
-    result = ' '.join(result)
-    print(f'#{t} {result}')
+    myheap = Heap()
+
+    commands = [ list(map(int,input().split())) for _ in range(N) ]
+
+    print(f'#{t}', end=' ')
+    for command in commands:
+        if command[0] == 1:
+            myheap.insert(command[1])
+        elif command[0] == 2:
+            print(myheap.delete(),end=' ')
+    print()
+
