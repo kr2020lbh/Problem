@@ -3,7 +3,7 @@ def check(depth):
     for i in range(depth+1):
         if visited[depth+1]==visited[i]:
             return False
-        if abs(depth+1-i)==abs(visited[depth+1]-visited[i]):
+        if depth+1-i==abs(visited[depth+1]-visited[i]):
             return False
     else:return True
 
