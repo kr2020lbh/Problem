@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4c76476d-b06c-4116-9566-e33279940113" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/18_Backtracking/9663_N_Queen.py" beforeDir="false" afterPath="$PROJECT_DIR$/18_Backtracking/9663_N_Queen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +135,7 @@
       <workItem from="1597931005969" duration="56000" />
       <workItem from="1598231583302" duration="3802000" />
       <workItem from="1599614946154" duration="1497000" />
+      <workItem from="1599733770916" duration="808000" />
     </task>
     <servers />
   </component>
