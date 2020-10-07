@@ -1,49 +1,42 @@
 import sys
-import copy
 sys.stdin = open("input.txt","r")
 from collections import deque
 
-
-def wallbreaker(arr,point):
-    arr[point[0]][point[1]] = 0
-    return
-
-
-def dfs(arr,wallbreak,visited):
+def bfs():
 
     while Q:
-        point = Q.popleft()
-        r,c = point[0],point[1]
-        if r==N-1 and c == M-1:
-            cnt.append()
-            return
-        if wallbreak == False:
-            dr, dc = r+d_r[i], c+d_c[i]
-            if 0<=dr<N and 0<=dc<M and arr[dr][dc] == 0 and visited[dr][dc]==0:
-                visited[dr][dc] = 1
-                arr[dr][dc] = arr[r][c] - 1
-                Q.append([dr,dc])
-        else:
-
+        r,c,wall = Q.popleft()
         for i in range(4):
-
-
+            dr = r+d_r[i]
+            dc = c+d_c[i]
+            if 0 <= dr < N and 0 <= dc < M:
+                if arr[dr][dc]==0 and visited[dr][dc][wall]==0:
+                    visited[dr][dc][wall]=visited[r][c][wall]+1
+                    Q.append([dr,dc,wall])
+                if wall == 0 and arr[dr][dc] == 1 and visited[dr][dc][1]==0:
+                    visited[dr][dc][1]=visited[r][c][wall]+1
+                    Q.append([dr,dc,1])
 
 
 d_r = [-1,1,0,0]
 d_c = [0,0,-1,1]
-visited = [[0] * 1000 for _ in range(1000)]
-visited[0][0] = 1
 arr = []
-indexes = []
-
-N,M = map(int,input().split())
-
-
 Q = deque()
-cnt= []
-for i in range(N):
-    row = list(map(int,input()))
-    arr.append(row)
+N,M = map(int,input().split())
+visited = [[[0,0] for _ in range(M)] for _ in range(N)]
+[arr.append(list(map(int,input()))) for _ in range(N)]
 
-Q.append([0,0])
+Q.append([0,0,0])
+visited[0][0][0] =  1
+
+bfs()
+
+if sum(visited[N-1][M-1])==0:
+    print(-1)
+else:
+    if visited[N-1][M-1][0]==0:
+        print(visited[N-1][M-1][1])
+    elif visited[N-1][M-1][1]==0:
+        print(visited[N-1][M-1][0])
+    else:
+        print(min(visited[N-1][M-1][0],visited[N-1][M-1][1]))
