@@ -8,6 +8,7 @@ def get_postOrder(start,end):
     if start>end:return
     root = preOrder[start]
     right_start = start
+
     for i in range(start,end+1):
         if root < preOrder[i]:
             right_start = i
@@ -20,8 +21,6 @@ def get_postOrder(start,end):
         get_postOrder(start + 1, right_start - 1)
         get_postOrder(right_start, end)
         print(root)
-
-
 
 preOrder = []
 while True:

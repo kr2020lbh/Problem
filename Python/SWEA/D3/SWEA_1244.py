@@ -2,33 +2,35 @@
 import sys
 sys.stdin = open("input.txt","r")
 
-for t in range(1,int(input())+1):
-    nums, N = map(int,input().split())
-    nums = list(map(int,str(nums)))
-    for i in range(len(nums)):
-        if N==0:break
+
+def make_change(nums):
+    for i in range(len(nums)-1):
+        if nums[i] >= max(nums[i+1::]):
+            continue
         else:
-            MAX = nums[i]
-            MAX_IDX = i
-            MIN = nums[i]
-            MIN_IDX = i
-            for j in range(i,len(nums)):
+            MAX = 0
+            for j in range(i+1,len(nums)):
                 if nums[j] >= MAX:
                     MAX = nums[j]
-                    MAX_IDX = j
-                if nums
-            if MAX_IDX != i and nums[i]!=nums[MAX_IDX]:
-                nums[i],nums[MAX_IDX] = nums[MAX_IDX],nums[i]
-                N-=1
+                    idx = j
+            nums[i],nums[idx] = nums[idx], nums[i]
+            return nums
     else:
-        if N%2==1:
-            #똑같은 숫자가 없는 경우
-            if len(set(nums)) == len(nums):
-                print(set(nums),nums)
-                nums[-1],nums[-2] = nums[-2],nums[-1]
-            #똑같은 숫자가 있는 경우
+        nums[len(nums)-1],nums[len(nums)-2] = nums[len(nums)-2],nums[len(nums)-1]
+        return nums
 
-    ans = ''.join(list(map(str,nums)))
-    print(f'#{t} {ans}')
+def make_smaller():
+    pass
+
+
+for t in range(1,int(input())+1):
+    nums, N = map(int,input().split())
+    nums = list(map(int, str(nums)))
+    max_nums = sorted(nums,reverse=True)
+    print(nums,max_nums,N)
+
+    for i in range(N):
+        nums = make_change(nums)
+    print()
 
 
