@@ -48,8 +48,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
-  <component name="RunManager" selected="Python.9095_123더하기">
-    <configuration name="1149_RGB거리" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.9465_스티커">
+    <configuration name="10844_쉬운계단수" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BOJ" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -62,7 +62,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1149_RGB거리.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/10844_쉬운계단수.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -71,7 +71,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="11727_2xn타일링" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="11057_오르막수" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BOJ" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -84,7 +84,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/11727_2xn타일링.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/11057_오르막수.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,7 +93,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="1463_1로만들기" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="2193_이친수" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BOJ" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -106,7 +106,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1463_1로만들기.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2193_이친수.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,7 +137,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="9461_파도반수열" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="9465_스티커" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BOJ" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -150,7 +150,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/9461_파도반수열.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/9465_스티커.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.9465_스티커" />
+        <item itemvalue="Python.2193_이친수" />
+        <item itemvalue="Python.11057_오르막수" />
+        <item itemvalue="Python.10844_쉬운계단수" />
         <item itemvalue="Python.9095_123더하기" />
-        <item itemvalue="Python.11727_2xn타일링" />
-        <item itemvalue="Python.1463_1로만들기" />
-        <item itemvalue="Python.1149_RGB거리" />
-        <item itemvalue="Python.9461_파도반수열" />
       </list>
     </recent_temporary>
   </component>
@@ -225,6 +225,7 @@
       <workItem from="1602504264671" duration="4079000" />
       <workItem from="1602512388622" duration="2364000" />
       <workItem from="1602602992902" duration="2409000" />
+      <workItem from="1603426601708" duration="7360000" />
     </task>
     <servers />
   </component>
@@ -248,32 +249,32 @@
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="225" y="355" key="#com.intellij.fileTypes.FileTypeChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1600879411167" />
-    <state width="1651" height="272" key="GridCell.Tab.0.bottom" timestamp="1602605421331">
+    <state width="1649" height="272" key="GridCell.Tab.0.bottom" timestamp="1603438933848">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="876" height="206" key="GridCell.Tab.0.bottom/0.30.1536.834@0.30.1536.834" timestamp="1602508631230" />
-    <state width="1651" height="272" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1602605421331" />
+    <state width="1649" height="272" key="GridCell.Tab.0.bottom/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1603438933848" />
     <state width="1107" height="278" key="GridCell.Tab.0.bottom/0.30.1920.1050@0.30.1920.1050" timestamp="1601572355971" />
     <state width="720" height="211" key="GridCell.Tab.0.bottom/1920.38.1920.1042/0.30.1536.834@1920.38.1920.1042" timestamp="1599616456891" />
-    <state width="1651" height="272" key="GridCell.Tab.0.center" timestamp="1602605421331">
+    <state width="1649" height="272" key="GridCell.Tab.0.center" timestamp="1603438933848">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="876" height="206" key="GridCell.Tab.0.center/0.30.1536.834@0.30.1536.834" timestamp="1602508631230" />
-    <state width="1651" height="272" key="GridCell.Tab.0.center/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1602605421331" />
+    <state width="1649" height="272" key="GridCell.Tab.0.center/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1603438933848" />
     <state width="1107" height="278" key="GridCell.Tab.0.center/0.30.1920.1050@0.30.1920.1050" timestamp="1601572355971" />
     <state width="720" height="211" key="GridCell.Tab.0.center/1920.38.1920.1042/0.30.1536.834@1920.38.1920.1042" timestamp="1599616456891" />
-    <state width="1651" height="272" key="GridCell.Tab.0.left" timestamp="1602605421331">
+    <state width="1649" height="272" key="GridCell.Tab.0.left" timestamp="1603438933848">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="876" height="206" key="GridCell.Tab.0.left/0.30.1536.834@0.30.1536.834" timestamp="1602508631230" />
-    <state width="1651" height="272" key="GridCell.Tab.0.left/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1602605421331" />
+    <state width="1649" height="272" key="GridCell.Tab.0.left/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1603438933848" />
     <state width="1107" height="278" key="GridCell.Tab.0.left/0.30.1920.1050@0.30.1920.1050" timestamp="1601572355971" />
     <state width="720" height="211" key="GridCell.Tab.0.left/1920.38.1920.1042/0.30.1536.834@1920.38.1920.1042" timestamp="1599616456891" />
-    <state width="1651" height="272" key="GridCell.Tab.0.right" timestamp="1602605421331">
+    <state width="1649" height="272" key="GridCell.Tab.0.right" timestamp="1603438933848">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state width="876" height="206" key="GridCell.Tab.0.right/0.30.1536.834@0.30.1536.834" timestamp="1602508631230" />
-    <state width="1651" height="272" key="GridCell.Tab.0.right/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1602605421331" />
+    <state width="1649" height="272" key="GridCell.Tab.0.right/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1603438933848" />
     <state width="1107" height="278" key="GridCell.Tab.0.right/0.30.1920.1050@0.30.1920.1050" timestamp="1601572355971" />
     <state width="720" height="211" key="GridCell.Tab.0.right/1920.38.1920.1042/0.30.1536.834@1920.38.1920.1042" timestamp="1599616456891" />
     <state x="2824" y="202" key="SettingsEditor" timestamp="1599615156118">
@@ -285,15 +286,17 @@
     </state>
     <state x="84" y="383" width="744" height="168" key="dock-window-1/0.30.1536.834@0.30.1536.834" timestamp="1600497866919" />
     <state x="427" y="48" width="930" height="211" key="dock-window-1/0.30.1920.1050@0.30.1920.1050" timestamp="1600433741321" />
-    <state x="210" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1600498249974">
-      <screen x="0" y="30" width="1536" height="834" />
+    <state x="263" y="226" width="840" height="854" key="search.everywhere.popup" timestamp="1603426989769">
+      <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="210" y="186" width="672" height="678" key="search.everywhere.popup/0.30.1536.834@0.30.1536.834" timestamp="1600498249974" />
+    <state x="263" y="226" width="840" height="854" key="search.everywhere.popup/0.30.1920.1050/-1920.30.1536.834@0.30.1920.1050" timestamp="1603426989769" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BOJ$2751_Sorting_2.coverage" NAME="2751_Sorting_2 Coverage Results" MODIFIED="1598234769827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/13_BruteForce" />
     <SUITE FILE_PATH="coverage/BOJ$2116_.coverage" NAME="2116_주사위쌓기 Coverage Results" MODIFIED="1600600076568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1463_1.coverage" NAME="1463_1로만들기 Coverage Results" MODIFIED="1602604474407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BOJ$10844_.coverage" NAME="10844_쉬운계단수 Coverage Results" MODIFIED="1603428688409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$__1_.coverage" NAME="일곱난쟁이 (1) Coverage Results" MODIFIED="1600419499797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1271_2.coverage" NAME="1271_엄청난부자2 Coverage Results" MODIFIED="1601553241697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1013_Contact.coverage" NAME="1013_Contact Coverage Results" MODIFIED="1602513076465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -304,12 +307,15 @@
     <SUITE FILE_PATH="coverage/BOJ$1244_.coverage" NAME="1244_스위치켜고끄기 Coverage Results" MODIFIED="1600883476732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$14696_.coverage" NAME="14696_딱지놀이 Coverage Results" MODIFIED="1600595315818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$2304_.coverage" NAME="2304_창고다각형 Coverage Results" MODIFIED="1600846932216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BOJ$9465_.coverage" NAME="9465_스티커 Coverage Results" MODIFIED="1603436239903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$13300_.coverage" NAME="13300_방배정 Coverage Results" MODIFIED="1600594501111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$17136_.coverage" NAME="17136_색종이붙이기 Coverage Results" MODIFIED="1601542617395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/삼성A형기출문제" />
     <SUITE FILE_PATH="coverage/BOJ$1149_RGB.coverage" NAME="1149_RGB거리 Coverage Results" MODIFIED="1602515343448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1021_.coverage" NAME="1021_회전하는큐 Coverage Results" MODIFIED="1601572078136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$2628_.coverage" NAME="2628_종이자르기 Coverage Results" MODIFIED="1600598246542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1010_.coverage" NAME="1010_다리놓기 Coverage Results" MODIFIED="1601555791325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BOJ$11057_.coverage" NAME="11057_오르막수 Coverage Results" MODIFIED="1603429435028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BOJ$2193_.coverage" NAME="2193_이친수 Coverage Results" MODIFIED="1603432985141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1015_.coverage" NAME="1015_수열정렬 Coverage Results" MODIFIED="1601558632921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$1550_16.coverage" NAME="1550_16진수 Coverage Results" MODIFIED="1601553906516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BOJ$2564_.coverage" NAME="2564_경비원 Coverage Results" MODIFIED="1600927470588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
