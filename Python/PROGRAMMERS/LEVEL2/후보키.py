@@ -1,123 +1,47 @@
-# from itertools import combinations
-# def check_contain(used_key,cur_key):
-#     if len(used_key) < len(cur_key):
-#         for u in used_key:
-#             for c in cur_key:
-#                 if u == c:
-#                     break
-#             else:
-#                 return False
-#         else:
-#             return True
-#     else:
-#         return False
-#
-# def check_key(used_key,cur_key,bool_arr):
-#     for u in used_key:
-#         if check_contain(u,cur_key):
-#             return False
-#     for i in range(len(bool_arr[0])):
-#         tmp = False
-#         for k in cur_key:
-#             tmp = tmp or bool_arr[k][i]
-#         if tmp == False:
-#             return False
-#     return True
-#
-#
-# def solution(relation):
-#     answer = 0
-#     new_relation = [list(r) for r in zip(*relation)]
-#     bool_arr = [[True]*len(new_relation[0]) for _ in range(len(new_relation))]
-#     # [print(a) for a in new_relation]
-#     for row in range(len(new_relation)):
-#         for col in range(len(new_relation[0])):
-#             if new_relation[row][col] in new_relation[row][col+1::]:
-#                 bool_arr[row][col] = False
-#
-#     indexes = set()
-#
-#     for i in range(len(bool_arr)):
-#         if sum(bool_arr[i]) == len(bool_arr[i]):
-#             indexes.add(i)
-#     answer += len(indexes)
-#     indexes = list(set(range(len(relation[0])))-indexes)
-#
-#
-#     keys = []
-#     used = []
-#     for i in range(2,len(relation)+1):
-#         keys += map(list,combinations(indexes,i))
-#
-#     for key in keys:
-#         if check_key(used,key,bool_arr):
-#             used.append(key)
-#             answer += 1
-#     return answer
 from itertools import combinations
 
-def check_contain(used_key,key):
-    if not used_key:
-        return False
+def check(candidate_key,comb):
+    for i in range(1, len(comb) + 1):
+        for c_key in candidate_key:
+            if c_key in list(map(list, combinations(comb, i))):
+                return False
+    return True
 
-    for uk in used_key:
-        cnt = 0
-        for u in uk:
-            if u in key:
-                cnt += 1
 
-        if cnt == len(uk):
-            return True
-    return False
-
-#check contain이 True이면 그 key는 하지마
-def check_key(used_key,key,relation):
-    if check_contain(used_key,key):
-        return False
-    new_col = set()
+def is_candidate(relation,comb):
+    res = []
     for i in range(len(relation)):
         tmp = ''
-        for k in key:
-            tmp+=relation[i][k]
-        new_col.add(tmp)
-    if len(new_col) == len(relation):
+        for j in comb:
+            tmp += relation[i][j]
+        res.append(tmp)
+    if len(set(res)) == len(res):
         return True
-    return False
-
-
-
+    else: return False
 
 
 def solution(relation):
-    answer = 0
+    candidate_key = []
+    used_key = [0]*len(relation[0])
+    col_to_row_list = list(zip(*relation))
+    for i in range(len(col_to_row_list)):
+        if len(set(col_to_row_list[i])) == len(col_to_row_list[i]):
+            used_key[i] = 1
+            candidate_key.append([i])
 
+    for colum_nums in range(2,len(used_key)+1):
+        for comb in combinations(range(len(used_key)), colum_nums):
+            if check(candidate_key,comb):
+                print('yes')
+                if is_candidate(relation,comb):
+                    candidate_key.append(list(comb))
+            else:
+                print('no')
 
-    del_idx = []
-    for i in range(len(relation[0])):
-        tmp = set()
-        for j in range(len(relation)):
-            tmp.add(relation[j][i])
-        if len(tmp) == len(relation):
-            del_idx.append(i)
+            print(candidate_key,comb)
 
-    answer += len(del_idx)
-    for i in del_idx[::-1]:
-        for j in range(len(relation)):
-            del relation[j][i]
-
-
-    comb = []
-    used_key = []
-    if relation:
-        for i in range(2,len(relation[0])+1):
-            comb += map(list,combinations(range(len(relation[0])),i))
-
-        for key in comb:
-            if check_key(used_key,key,relation):
-                answer += 1
-                used_key += [key]
-    return answer
-
-
+    return len(candidate_key)
+#
+#
 relation = [["100","ryan","music","2"],["200","apeach","math","2"],["300","tube","computer","3"],["400","con","computer","4"],["500","muzi","music","3"],["600","apeach","music","2"]]
 solution(relation)
