@@ -1,47 +1,24 @@
-def solution(tmp):
-
-    answer = ''
-    i = 1
-    total = 0
-
-
-    while True:
-        total += 3**i
-        if tmp <= total:
+def solution(n):
+    num_range = [1] * 20
+    for i in range(1, 20):
+        num_range[i] = num_range[i - 1] + 3 ** i
+        if n < num_range[i]:
+            idx = i
             break
-        i+=1
-    # 3**(i-1)부터 시작했을 때 x 번째 수
-    # tmp - 3**(i-1) = x 번 째 수
-    # answer는 i 자리 수
-    # answer의 i 번 쨰 수를 정하는 방법은
-    #  x가 2*3**(i-1) 보다 크면 4
-    #  x가 3**(i-1) 보다 크면 2
-    #  x가 3**(i-1) 같거나 작으면 1
-
-
-    #
-
-    for j in range(i-1,-1,-1):
-        tmp -= 3 ** (j - 1)
-
-        if tmp > 2*3**(j):
-            answer += '4'
-            tmp -= 2*3**(j)
-            continue
-
-        if tmp > 3**(j):
-            answer += '2'
-            tmp -= 3**(j)
-            continue
-
-        answer += '1'
-
-    return answer
+    # print(idx) # idx 자리수
+    cnt = n-num_range[idx-1]+1 #idx자리수 이면서 cnt 번째
+    # print(n-num_range[idx-1]+1)
+    res = ''
+    for i in range(idx-1,-1,-1):#idx자리부터 1자리까지 구하기
+        if cnt <= 3**i:
+            res += '1'
+        elif cnt <= 2*3**i:
+            res += '2'
+            cnt -= 3**i
+        else:
+            res += '4'
+            cnt -= 2*3**i
+    return res
 
 
 
-
-for i in range(1,100):
-    solution(i)
-for i in range(100):
-    print(3**i>4**(i-1))
