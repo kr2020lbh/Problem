@@ -1,30 +1,16 @@
-N = 4
-def check_diagonal(depth,col):
-    for i in range(depth):
-        if abs(depth - i) == abs(col - visited[i]):
-            return False
-    return True
-def f(depth):
+def check(row):
     global cnt
-    if depth == N-1:
-        cnt+=1
-        print(visited)
+    if row == N:
+        cnt += 1
     else:
         for col in range(N):
-            if col in visited:
-                continue
-            if check_diagonal(depth,col)==False:
-                continue
+            if a[col] == False and b[row+col]==False and c[row-col+N-1]==False:
+                a[col] = b[row+col] = c[row-col+N-1] = True
+                check(row+1)
+                a[col] = b[row+col] = c[row-col+N-1] = False
 
-
-            visited[depth+1] = col
-            f(depth+1)
-            visited[depth+1] = -1
-visited = [0]*N
-cnt=0
-visited=[-1]*N
-for i in range(N):
-    visited[0]=i
-    f(0)
-    visited[0]=-1
+N=int(input())
+a,b,c = [False]*N,[False]*(2*N-1),[False]*(2*N-1)
+cnt = 0
+check(0)
 print(cnt)
