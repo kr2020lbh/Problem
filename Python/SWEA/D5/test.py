@@ -1,31 +1,55 @@
+pattern = {(2, 1, 1): 0,
+           (2, 2, 1): 1,
+           (1, 2, 2): 2,
+           (4, 1, 1): 3,
+           (1, 3, 2): 4,
+           (2, 3, 1): 5,
+           (1, 1, 4): 6,
+           (3, 1, 2): 7,
+           (2, 1, 3): 8,
+           (1, 1, 2): 9}
 
-def decode_binary(first_idx, second_idx, third_idx, fourth_idx):
-    min_len = min((second_idx - first_idx), (third_idx -second_idx), (fourth_idx - third_idx))
-    tmp_code = ((second_idx - first_idx) // min_len, (third_idx - second_idx) // min_len, (fourth_idx -third_idx) // min_len)
-    print(tmp_code) 
+hexTobin = {'0': [0, 0, 0, 0], '1': [0, 0, 0, 1], '2': [0, 0, 1, 0], '3': [0, 0, 1, 1], '4': [0, 1, 0, 0],
+            '5': [0, 1, 0, 1], '6': [0, 1, 1, 0], '7': [0, 1, 1, 1], '8': [1, 0, 0, 0],
+            '9': [1, 0, 0, 1], 'A': [1, 0, 1, 0], 'B': [1, 0, 1, 1], 'C': [1, 1, 0, 0], 'D': [1, 1, 0, 1],
+            'E': [1, 1, 1, 0], 'F': [1, 1, 1, 1]}
 
-codes = ['111100110','1100110','011110011','001100110']
-for b_code in codes:
-    first = second = third = False
-    for i in range(len(b_code)):
-        if first:
-            if second:
-                if third:
-                    if b_code[i] == '0':
-                        decode_binary(first_idx,second_idx,third_idx,i)
-                        first = second = third = False
-                else:
-                    if b_code[i] == '1':
-                        third = True
-                        third_idx = i
-            else:
-                if b_code[i] == '0':
-                    second = True
-                    second_idx = i
-        else:
-            if b_code[i] == '1':
-                first = True
-                first_idx = i
 
-print(ord('A'))
-print(ord('a'))
+def find():
+    ans = 0
+    for i in range(N):
+        idx = len(arr[i]) - 1
+        while idx >= 55:
+            # 바로 위행의 값이 없어야 처음만나거
+            if arr[i][idx] and arr[i - 1][idx] == 0:
+                pwd = []
+                for _ in range(8):
+                    c2 = c3 = c4 = 0
+                    #
+                    while arr[i][idx] == 0: idx -= 1
+                    while arr[i][idx] == 1: c4, idx = c4 + 1, idx - 1
+                    while arr[i][idx] == 0: c3, idx = c3 + 1, idx - 1
+                    while arr[i][idx] == 1: c2, idx = c2 + 1, idx - 1
+
+                    MIN = min(c2,c3,c4)
+                    pwd.append(pattern[(c2//MIN, c3//MIN, c4 // MIN)])
+
+                b = pwd[0] + pwd[2] + pwd[4] + pwd[6]
+                a = pwd[1] + pwd[3] + pwd[5] + pwd[7]
+
+                if(a * 3 + b) % 10 == 0:
+                    ans += a+b
+            idx -= 1
+    return ans
+
+
+for tc in range(1, int(input()) + 1):
+    N, M = map(int, input().split())
+    arr = [[] for _ in range(N)]
+
+    for i in range(N):
+        tmp = input()
+        for j in range(M):
+            arr[i] += hexTobin[tmp[j]]
+
+    print("#{} {}".format(tc, find()))
