@@ -18,8 +18,6 @@ def check(start_point,k):
             for i in range(0,k,k//3):
                 for j in range(0,k,k//3):
                     check([row+i,col+j],k//3)
-
-
 n = int(input())
 arr = [list(map(int,input().split())) for _ in range(n)]
 answer = [0,0,0]
