@@ -1,56 +1,40 @@
-import sys
+import sys,math
 sys.stdin = open("input.txt", "r")
-from itertools import permutations
+def get_min(U,D):
+    MIN = math.inf
+    for i in range(N):
+        if i not in U:
+            if D[i] <= MIN:
+                MIN = D[i]
+                idx = i
+    return idx
 
-# def get_distance(perm,home,company,visited):
-#     global MIN,MIN_PERM
-#     total = 0
-#     prev_x,prev_y = company
-#     for i in perm:
-#         if MIN < total:return
-#         cur_x,cur_y = locations[i][0:2]
-#         total += abs(prev_x-cur_x) + abs(prev_y-cur_y)
-#         prev_x,prev_y = cur_x,cur_y
-#     home_x, home_y = home
-#     total += abs(prev_x-home_x) + abs(prev_y-home_y)
-#     if total < MIN:
-#         MIN = total
-#         MIN_PERM = perm
-#     return
 
+def dijkstra(s,edges,D):
+    U = [s]
+    for i in range(N+2):
+        D[i] = edges[s][i]
+    while len(U) != N:
+        print(U)
+        w = get_min(U,D)
+        U.append(w)
+        for j in range(N+2):
+            D[j] = min(D[j],D[w] + edges[w][j])
+    print(U)
 for t in range(1,int(input())+1):
     N = int(input())
     tmp = list(map(int,input().split()))
     locations = []
     for i in range(N+2):
         locations.append([tmp[i*2],tmp[i*2+1]])
-    MIN = 999999999
-    get_distance(0,0,0,0)
-    print("#{} {}".format(t,MIN))
+    locations[1],locations[-1] = locations[-1],locations[1]
+    print(locations)
+    edges = [[0]*(N+2) for _ in range(N+2)]
+    for i in range(N+2):
+        for j in range(N+2):
+            if j != i:
+                edges[i][j] = abs(locations[i][0]-locations[j][0]) + abs(locations[i][1]-locations[j][1])
 
-
-# for t in range(1,int(input())+1):
-#     N = int(input())
-#     tmp = list(map(int,input().split()))
-#     locations = []
-#     for i in range(N+2):
-#         locations.append([tmp[i*2],tmp[i*2+1],(tmp[i*2]+tmp[i*2+1])/2])
-#     company = locations[0][0:2]
-#     home = locations[1][0:2]
-#     MIN = 999999999
-#     MIN_PERM = []
-#     for perm in permutations(range(2,N+2),N):
-#         get_distance(perm,home,company)
-#     print("#{} {}".format(t,MIN))
-
-# for t in range(1,int(input())+1):
-#     N = int(input())
-#     tmp = list(map(int,input().split()))
-#     locations = []
-#     for i in range(N+2):
-#         locations.append([tmp[i*2],tmp[i*2+1]],)
-#     company = locations[0]
-#     home = locations[1]
-#     MIN = 999999999
-#     print(locations)
-#     # print("#{} {}".format(t,MIN))
+    D = [math.inf] * (N+2)
+    dijkstra(0,edges,D)
+    print(D)
