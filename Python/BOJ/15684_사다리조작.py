@@ -5,14 +5,8 @@ sys.stdin = open("input.txt","r")
 
 def sol(ladder_cnt):
     for loc in combinations(indexes,ladder_cnt):
-        # print('before', loc)
-        # [print(l) for l in ladders]
         put_ladder(loc,1)
-        # print('after')
-        # [print(l) for l in ladders]
-        if go_ladder():
-            return True
-
+        if go_ladder():return True
         put_ladder(loc,0)
     return False
 
@@ -22,22 +16,15 @@ def put_ladder(loc,loc_val):
         ladders[x][y + 1] = -loc_val
 
 def go_ladder():
-
     index = 0
-    while index < N-1:
+    while index < N:
         col = index
         row = 0
-        # print()
-        # [print(l) for l in ladders]
-
         while row <= H:
-            # print(index, row, col)
-
             if row == H:
                 if index != col:
                     return False
                 break
-
             if ladders[row][col] == 1:
                     col += 1
             elif ladders[row][col] == -1:
@@ -50,11 +37,12 @@ def go_ladder():
 N,M,H = map(int,input().split())
 ladders = [[0]*N for _ in range(H)]
 indexes = []
+
 for _ in range(M):
     x,y = map(int,input().split())
     ladders[x-1][y-1] = 1
     ladders[x-1][y] = -1
-# [print(l) for l in ladders]
+
 for x in range(H):
     for y in range(N):
         if y+1 < N and ladders[x][y]==0 and ladders[x][y+1] == 0 :
