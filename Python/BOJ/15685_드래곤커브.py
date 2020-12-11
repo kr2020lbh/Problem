@@ -8,24 +8,28 @@ N = int(input())
 maps = [[0]*101 for _ in range(101)]
 delta = [[0,1],[-1,0],[0,-1],[1,0]]
 for _ in range(N):
-    x,y,d,g = map(int,input().split()) #x는 col y는 row
-    maps[y][x] = 1
-    dx = x+delta[d][1]
-    dy = y+delta[d][0]
-    end = [dy,dx]
-    maps[dy][dx] = 1
-    indexes = [[y,x]]
+    col,row,d,g = map(int,input().split()) #x는 col y는 row
+    drow, dcol = row+delta[d][0], col+delta[d][1]
+    maps[row][col] = 1
+    maps[drow][dcol] = 1
+    indexes = [[row,col]]
+    end = [drow, dcol]
     for _ in range(g):
-        pivot_y,pivot_x = end
-        print('기준점',end)
-        print(indexes)
+        pivot_row,pivot_col = end
         tmp_index = []
-        for x,y in indexes:
-            maps[pivot_x+pivot_y-y][pivot_x+pivot_y-x] = 1
-            tmp_index.append([pivot_x+pivot_y-x,pivot_x+pivot_y-y])
+        while indexes:
+            row,col = indexes.pop(0)
+            maps[pivot_row-pivot_col+col][pivot_row+pivot_col-row] = 1
+            tmp_index.append([pivot_row-pivot_col+col,pivot_row+pivot_col-row])
+            tmp_index.append([row,col])
         tmp_index.append(end)
-        end = tmp_index[0]
+        end = tmp_index.pop(0)
         indexes = tmp_index
-[print(m) for m in maps]
 
-
+ans = 0
+for i in range(100):
+    for j in range(100):
+        if maps[i][j] == 1:
+            if maps[i+1][j] == 1 and maps[i][j+1] == 1 and maps[i+1][j+1] == 1:
+                ans += 1
+print(ans)
