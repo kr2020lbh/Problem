@@ -21,7 +21,6 @@ def bfs():
                         cheeses[(_dr, _dc)] += 1
                         if cheeses[(_dr, _dc)] == 2:
                             points.append([_dr,_dc])
-
                     else:
                         cheeses[(_dr, _dc)] = 1
     if points:
@@ -38,4 +37,3 @@ dr = [-1,1,0,0]
 dc = [0,0,-1,1]
 while bfs():res += 1
 print(res)
-
