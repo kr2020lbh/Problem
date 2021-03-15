@@ -1,23 +1,19 @@
 import re
 def solution(word,pages):
+    word = word.lower()
     scores = {}
     meta_pattern = '<meta.*content="https://(.*)"/>'
-    url_pattern = '<a.*href="https://(.*)">'
+    url_pattern = '<a href="https://(\S*)"'
     for i in range(len(pages)):
-        page = pages[i]
+        page = pages[i].lower()
         meta_link = re.search(meta_pattern,page).group(1)
-        url_links = re.findall(url_pattern,page)
-        basic_socre = re.sub('[^a-z]+', '.', page.lower()).split('.').count(word.lower())
-
-        scores[meta_link] = [i, 0, [], 0, 0]  # 인덱스, 기본점수, 외부링크, 외부링크 수, 링크점수
-        scores[meta_link][2] = list(set(url_links))
-        scores[meta_link][1] = basic_socre
-        scores[meta_link][3] = len(list(set(url_links)))
-
+        url_links = list(set(re.findall(url_pattern,page)))
+        scores[meta_link] = [i, re.sub('[^a-z]','.',page).split('.').count(word), url_links, len(url_links), 0]  # 인덱스, 기본점수, 외부링크, 외부링크 수, 링크점수
     for idx, basic, links, links_length, link_score in scores.values():
         for link in links:
             if scores.get(link):
                 scores[link][-1] += basic/links_length
+    
     new_score = []
     for idx,basic,links,links_length,link_score in scores.values():
         new_score.append([idx,basic + link_score])

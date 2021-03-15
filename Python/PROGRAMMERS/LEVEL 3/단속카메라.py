@@ -1,16 +1,12 @@
 def solution(routes):
-    routes.sort(key=lambda x:(x[1],x[0]))
-    print(routes)
-    prev = routes[0][1]
-    answer = 0
-
-    for i in range(1,len(routes)):
-        now = routes[i][0]
-        if now >= prev:
-            answer += 1
-        prev = now
-    print(answer)
-    return answer
+    routes.sort(key=lambda x:x[1])
+    c = -30001
+    ans = 0
+    for car_in,car_out in routes:
+        if c < car_in :
+            c = car_out
+            ans += 1
+    return ans
 
 
 
