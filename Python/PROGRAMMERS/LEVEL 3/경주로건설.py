@@ -1,48 +1,34 @@
-from copy import deepcopy
-moves = [[-1,0],[1,0],[0,-1],[0,1]]
-ans = 10**8
+def get_cost(cost,new_d,cur_d):
+    if (new_d == 'U' or new_d == 'D') and (cur_d == 'U' or cur_d == 'D'):
+        return cost + 100
+    if (new_d == 'U' or new_d == 'D') and (cur_d == 'L' or cur_d == 'R'):
+        return cost + 600
+    if (new_d == 'L' or new_d == 'R') and (cur_d == 'L' or cur_d == 'R'):
+        return cost + 100
+    if (new_d == 'L' or new_d == 'R') and (cur_d == 'U' or cur_d == 'D'):
+        return cost + 600
 
-def next_move(board,r,c,move,turn,prev_d):
+def bfs(direction,board):
     N = len(board)
-
-    global ans
-    if ans < move * 100 + 500 * turn:
-        return
-
-    if r == N-1 and c == N-1:
-        print("move : {} turn : {} cost : {}".format(move, turn,move * 100 + turn * 500))
-        [print(b) for b in board]
-        tmp_ans = move * 100 + turn * 500
-        if tmp_ans < ans:
-            ans = tmp_ans
-        return
-
-
-    board[r][c] = 1
-    for i in range(4):
-        dr, dc = moves[i]
-        nr,nc = r+dr,c+dc
-        if 0<= nr < N and 0<= nc < N and board[nr][nc] == 0:
-            tmp_board = deepcopy(board)
-            tmp_board[nr][nc] = 1
-            if i != prev_d:
-                next_move(tmp_board,nr,nc,move+1,turn+1,i)
-            else:
-                next_move(tmp_board,nr,nc,move+1,turn,i)
-
+    directions = [[1,0,'D'],[-1,0,'U'],[0,1,'R'],[0,-1,'L']]
+    Q = [[0,0,0,direction]] #r,c,cost,direction
+    costs = [[0]*N for _ in range(N)]
+    while Q:
+        r,c,cost,cur_dir = Q.pop(0)
+        for i in range(4):
+            dr,dc,dd = directions[i]
+            nr,nc = r+dr,c+dc
+            new_cost = get_cost(cost,dd,cur_dir)
+            if 0<= nr < N and 0<= nc < N and board[nr][nc] == 0:
+                if costs[nr][nc] == 0 or costs[nr][nc] > new_cost:
+                    costs[nr][nc] = new_cost
+                    Q.append([nr,nc,new_cost,dd])
+    return costs[N-1][N-1]
 
 def solution(board):
-    N = len(board)
-    r,c = 0,0
-    board[r][c] = 1
-    for i in range(4):
-        dr, dc = moves[i]
-        nr,nc = r+dr,c+dc
-        if 0<= nr < N and 0<= nc < N and board[nr][nc] == 0:
-            tmp_board = deepcopy(board)
-            tmp_board[nr][nc] = 1
-            next_move(tmp_board,nr,nc,1,0,i)
-    return ans
+    return min(bfs('R',board),bfs('D',board))
+    
+
     # return answer
 
 solution([[0,0,0,0,0,0,0,1],[0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0],[0,0,0,0,1,0,0,0],[0,0,0,1,0,0,0,1],[0,0,1,0,0,0,1,0],[0,1,0,0,0,1,0,0],[1,0,0,0,0,0,0,0]]	)
