@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 15 for Windows Desktop
+VisualStudioVersion = 15.0.28307.1401
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "자연수뒤집어배열로만들기", "자연수뒤집어배열로만들기\자연수뒤집어배열로만들기.vcxproj", "{0E147080-9390-4955-8786-AD8EA5480597}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E147080-9390-4955-8786-AD8EA5480597}.Debug|x64.ActiveCfg = Debug|x64
+		{0E147080-9390-4955-8786-AD8EA5480597}.Debug|x64.Build.0 = Debug|x64
+		{0E147080-9390-4955-8786-AD8EA5480597}.Debug|x86.ActiveCfg = Debug|Win32
+		{0E147080-9390-4955-8786-AD8EA5480597}.Debug|x86.Build.0 = Debug|Win32
+		{0E147080-9390-4955-8786-AD8EA5480597}.Release|x64.ActiveCfg = Release|x64
+		{0E147080-9390-4955-8786-AD8EA5480597}.Release|x64.Build.0 = Release|x64
+		{0E147080-9390-4955-8786-AD8EA5480597}.Release|x86.ActiveCfg = Release|Win32
+		{0E147080-9390-4955-8786-AD8EA5480597}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35790C34-064D-4287-BB45-D69A8FD61054}
+	EndGlobalSection
+EndGlobal
